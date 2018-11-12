@@ -24,7 +24,22 @@ img {
   box-shadow: var(--shadow);
   background-color: var(--base);
   filter: blur(var(--blur));
+  max-width: 500px;
 }
 #h1 {
   color: var(--base);
+}
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+.css-code {
+  width: 230px;
+  height: 120px;
+  float: right;
+  color: #666;
+  border: solid 1px #666;
+  font-size: 14px;
+  font-family: Courier New, Courier, monospace;
+  padding: 20px;
 }
