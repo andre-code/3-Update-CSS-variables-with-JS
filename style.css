@@ -1,15 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 :root {
-  --base: rgb(6, 102, 109);
-  --spacing: 20px;
-  --blur: 10px;
+  --base: #ffc600;
+  --shadow: -4px -4px 104px 0px var(--base);
+  --blur: 2px;
 }
 body {
   text-align: center;
   background: #ffffff;
-  color: rgb(30, 87, 109);
-  font-family: 'helvetica neue', sans-serif;
-  font-weight: 40;
-  font-size: 35px;
+  color: #666;
+  font-family: 'Dancing Script', cursive;
+  font-weight: 30;
+  font-size: 28px;
 }
 
 .controls {
@@ -20,10 +21,10 @@ input {
   width: 100px;
 }
 img {
-  padding: var(--spacing);
+  box-shadow: var(--shadow);
   background-color: var(--base);
   filter: blur(var(--blur));
 }
-.h1 {
+#h1 {
   color: var(--base);
 }
