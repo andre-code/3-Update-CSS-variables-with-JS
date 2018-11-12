@@ -15,7 +15,7 @@
     <input id="shadow" type="range" name="shadow" min="10" max="200" value="10" data-sizing="px">
 
     <label for="blur">Blur:</label>
-    <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+    <input id="blur" type="range" name="blur" min="0" max="25" value="2" data-sizing="px">
 
     <label for="base">Base Color</label>
     <input id="base" type="color" name="base" value="#ffc600">
@@ -33,30 +33,31 @@
     const boxCssCode = document.querySelector(".css-code");
     
     function setCodeBlur( value ) {
-      boxCssCode.value = `filter: blur(${value});`;
+      boxCssCode.innerHTML = `filter: blur(${value});`;
     }
     function setCodeShadow( value ) {
-      boxCssCode.value = `box-shadow: ${value}`;
+      boxCssCode.innerHTML = `box-shadow: ${value}`;
     }
     function setCode( value ) {
-      boxCssCode.value = `background-color: ${value};`;
+      boxCssCode.innerHTML = `background-color: ${value};`;
     }
 
     function handleUpdate() {
       const suffix = this.dataset.sizing || '';
       switch(this.name) {
         case "shadow":
-            const shadowProperty =  `-4px -4px ` + this.value + suffix + ` 0px var(--base)`;
+            const baseValue = document.documentElement.style.getPropertyValue('--base');
+            const shadowProperty =  `-4px -4px ` + this.value + suffix + ` 0px ${baseValue}`;
             document.documentElement.style.setProperty( `--${this.name}`, shadowProperty );
             setCodeShadow(shadowProperty);
             break;
         case "blur":
             document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
-            setCodeBlur(`--${this.name}`, this.value + suffix);
+            setCodeBlur(this.value + suffix);
             break;
         case "base":
             document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
-            setCode(`--${this.name}`, this.value + suffix);
+            setCode(this.value + suffix);
             break;
       }
     }
