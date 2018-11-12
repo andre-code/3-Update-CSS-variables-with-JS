@@ -1,0 +1,29 @@
+:root {
+  --base: rgb(6, 102, 109);
+  --spacing: 20px;
+  --blur: 10px;
+}
+body {
+  text-align: center;
+  background: #ffffff;
+  color: rgb(30, 87, 109);
+  font-family: 'helvetica neue', sans-serif;
+  font-weight: 40;
+  font-size: 35px;
+}
+
+.controls {
+  margin-bottom: 50px;
+}
+
+input {
+  width: 100px;
+}
+img {
+  padding: var(--spacing);
+  background-color: var(--base);
+  filter: blur(var(--blur));
+}
+.h1 {
+  color: var(--base);
+}
